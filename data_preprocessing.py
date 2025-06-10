@@ -2,7 +2,7 @@ import numpy as np
 import joblib
 
 # Load scaler
-scaler = joblib.load("model\scaler_pca.joblib")
+scaler = joblib.load("scaler_pca.joblib")
 
 def preprocess_input(input_dict):
     """
