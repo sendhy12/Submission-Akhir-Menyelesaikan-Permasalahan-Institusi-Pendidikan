@@ -4,14 +4,14 @@ from data_preprocessing import preprocess_input
 
 # Load model and encoders
 try:
-    model = joblib.load('model\gboost_model.joblib')
+    model = joblib.load('gboost_model.joblib')
     print("✅ Model loaded successfully")
 except Exception as e:
     print(f"❌ Error loading model: {e}")
     model = None
 
 try:
-    label_encoder = joblib.load('model/label_encoder.joblib')
+    label_encoder = joblib.load('label_encoder.joblib')
     print("✅ Label encoder loaded successfully")
 except Exception as e:
     print(f"❌ Error loading label encoder: {e}")
