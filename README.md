@@ -51,20 +51,96 @@ Proyek ini akan berfokus pada pembangunan solusi berbasis data untuk membantu Ja
 
 Sumber data: [students' performance](https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/refs/heads/main/students_performance/data.csv)
 
-Setup environment:
-```
+## Setup Environment
+
+Untuk menjalankan proyek prediksi risiko dropout mahasiswa **Jaya Jaya Institut**, ikuti langkah berikut:
+
+### Requirements
+
+* Python 3.8 atau lebih tinggi
+* Daftar pustaka (lihat `requirements.txt`), beberapa di antaranya:
+
+  * `pandas`, `numpy`, `scikit-learn`
+  * `streamlit`, `joblib`
+
+### Struktur File
 
 ```
+project/
+│
+├── dataset for dashboard.xlsx     # Dataset untuk visualisasi dashboard
+├── app.py                         # Aplikasi Streamlit (antarmuka pengguna)
+├── data_preprocessing.py          # Pipeline preprocessing
+├── prediction.py                  # Fungsi prediksi menggunakan model
+├── gboost_model.joblib            # Model Gradient Boosting yang sudah dilatih
+├── scaler_pca.joblib              # Scaler dan PCA (gabungan)
+├── label_encoder.joblib           # Label encoder
+├── requirements.txt               # Daftar dependensi Python
+├── README.md                      # Penjelasan proyek
+└── notebook/                      # Notebook eksplorasi dan modeling
+```
+
+### Instalasi Lingkungan
+
+Aktifkan environment virtual dan instal semua dependensi dengan perintah berikut:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
 
 ## Business Dashboard
-Jelaskan tentang business dashboard yang telah dibuat. Jika ada, sertakan juga link untuk mengakses dashboard tersebut.
+
+Business dashboard dibuat untuk memberikan **visualisasi komprehensif** terkait faktor-faktor yang memengaruhi tingkat dropout mahasiswa di Jaya Jaya Institut.
+
+### Fitur Dashboard
+
+* Ringkasan metrik utama: % Dropout, % Beasiswa, % Debitur, % Pembayaran Tepat Waktu
+* Visualisasi dropout berdasarkan gender dan status beasiswa
+* Dropout berdasarkan urutan pilihan program studi (application order)
+* Dropout rate per program studi (course)
+
+Dashboard ini ditujukan untuk membantu pihak manajemen akademik dalam:
+
+* Mengidentifikasi kelompok mahasiswa berisiko tinggi
+* Mengevaluasi program studi dengan tingkat dropout tinggi
+* Menyusun strategi intervensi dan perbaikan
+
+### Link Akses (jika sudah tersedia online):
+
+> [Dashboard Dropout - Jaya Jaya Institut](https://public.tableau.com/views/SubmissionAkhirMenyelesaikanPermasalahanInstitusiPendidikan/Dashboard1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link)
+
+---
 
 ## Menjalankan Sistem Machine Learning
-Jelaskan cara menjalankan protoype sistem machine learning yang telah dibuat. Selain itu, sertakan juga link untuk mengakses prototype tersebut.
 
+Sistem prediksi dropout dibuat sebagai prototipe berbasis **Streamlit**, yang mengintegrasikan pipeline preprocessing dan model machine learning yang sudah dilatih.
+
+### Cara Menjalankan
+
+1. Jalankan perintah berikut di terminal:
+
+```bash
+streamlit run app.py
 ```
 
-```
+2. Aplikasi akan terbuka di browser lokal (biasanya di: `http://localhost:8501`)
+
+### File Penting
+
+* `app.py`: Antarmuka pengguna berbasis Streamlit
+* `data_preprocessing.py`: Pipeline transformasi data (scaling, encoding, PCA)
+* `prediction.py`: Fungsi prediksi berdasarkan model
+* `gboost_model.joblib`: Model Gradient Boosting terlatih
+* `scaler_pca.joblib`: Skaler dan PCA
+* `label_encoder.joblib`: Encoder kategori
+
+### Link Akses Prototype
+
+> [Prototype Prediksi Dropout](https://dss2sendhy.streamlit.app/)
+
+---
 
 ## Conclusion
 Berdasarkan proyek analisis data dan pengembangan model machine learning untuk memprediksi status mahasiswa di Jaya Jaya Institut, ditemukan bahwa beberapa fitur memiliki pengaruh besar terhadap hasil reduksi dimensi PCA, yang kemudian digunakan untuk melatih model prediksi.
